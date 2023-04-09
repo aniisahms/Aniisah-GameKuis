@@ -1,0 +1,5 @@
+Quizania/Library/*
+Quizania/Logs/*
+Quizania/Temp/*
+.vsconfig
+*.sln
