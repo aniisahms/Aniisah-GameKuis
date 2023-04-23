@@ -3,3 +3,4 @@ Quizania/Logs/*
 Quizania/Temp/*
 .vsconfig
 *.sln
+.DS_Store

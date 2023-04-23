@@ -4,37 +4,38 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [System.Serializable]
-    public struct QuizData {
-        public string questionText;
-        public Sprite questionImage;
-        public string[] answerOption; 
-        public bool[] isTrue;
-    }
-
+    [SerializeField] PlayerProgress playerProgress = null;
     private int questionIndex = -1;
-    [SerializeField] QuizData[] quizData = new QuizData[0];
+    [SerializeField] LevelPackQuiz quizData = null;
     [SerializeField] QuestionsUI questionsUI = null;
     [SerializeField] AnswersUI[] answersUI = new AnswersUI[0];
 
     private void Start() {
+        if (playerProgress.LoadProgress() == false)
+        {
+            playerProgress.SaveProgress();
+        }
         NextLevel();
     }
 
     public void NextLevel() {
         questionIndex++;
 
-        if (questionIndex >= quizData.Length) {
+        if (questionIndex >= quizData.questionLength)
+        {
             questionIndex = 0;
         }
 
-        QuizData individualData = quizData[questionIndex];
+        LevelQuizQuestion individualData = quizData.numOfQuestion(questionIndex);
+
         questionsUI.SetQuestion($"Question {questionIndex + 1}",
         individualData.questionText, individualData.questionImage);
 
-        for (int i = 0; i < answersUI.Length; i++) {
+        for (int i = 0; i < answersUI.Length; i++)
+        {
             AnswersUI value = answersUI[i];
-            value.SetAnswer(individualData.answerOption[i], individualData.isTrue[i]);
+            LevelQuizQuestion.AnswerOption option = individualData.answerOption[i];
+            value.SetAnswer(option.answerOption, option.isTrue);
         }
     }
 }
