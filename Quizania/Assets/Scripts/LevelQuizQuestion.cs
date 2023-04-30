@@ -15,6 +15,7 @@ public class LevelQuizQuestion : ScriptableObject
 
     public string questionText = string.Empty;
     public Sprite questionImage = null;
+    public int levelPackIndex = 0;
     
     public AnswerOption[] answerOption = new AnswerOption[0];
 }

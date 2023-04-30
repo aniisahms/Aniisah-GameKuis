@@ -10,7 +10,7 @@ public class LevelPackQuiz : ScriptableObject
     [SerializeField] LevelQuizQuestion[] levelQuizQuestion = new LevelQuizQuestion[0];
     public int questionLength => levelQuizQuestion.Length;
 
-    public LevelQuizQuestion numOfQuestion(int index) {
+    public LevelQuizQuestion NumOfQuestion(int index) {
         return levelQuizQuestion[index];
     }
 }

@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a11d1cb8f7d44359a7d927b56350f1d, type: 3}
-  m_Name: Question 3
+  m_Name: Question 2-1
   m_EditorClassIdentifier: 
-  questionText: Which of.NET components can be used to remove unused references from
-    the managed heap?
-  questionImage: {fileID: 21300000, guid: aec121937daff4290b04c09caea44c04, type: 3}
+  questionText: Warna dari Mawar ?
+  questionImage: {fileID: 21300000, guid: 6bb82ae8f0e9f479d9b38f48e4c8413b, type: 3}
   answerOption:
-  - answerOption: Garbage Collector
+  - answerOption: Merah
     isTrue: 1
-  - answerOption: Common Language Infrastructure
+  - answerOption: Biru
     isTrue: 0
-  - answerOption: ' Class Loader'
+  - answerOption: Hijau
     isTrue: 0
-  - answerOption: ' Entry point'
+  - answerOption: Kuning
     isTrue: 0

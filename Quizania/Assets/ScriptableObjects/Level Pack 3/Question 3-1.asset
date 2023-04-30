@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a11d1cb8f7d44359a7d927b56350f1d, type: 3}
-  m_Name: Question 2
+  m_Name: Question 3-1
   m_EditorClassIdentifier: 
-  questionText: Which of the following is the correct output of the C#.NET code snippet
-    given below?  int[ , , ] a = new int[ 3, 2, 3 ];  Console.WriteLine(a.Length);
-  questionImage: {fileID: 21300000, guid: 10264f054bf8f450d9862f7347584ab2, type: 3}
+  questionText: Warna dari Langit ?
+  questionImage: {fileID: 21300000, guid: dea76629f21b84a3aa9ea14bd0217a89, type: 3}
   answerOption:
-  - answerOption: 20
+  - answerOption: Merah
     isTrue: 0
-  - answerOption: 12
-    isTrue: 0
-  - answerOption: 10
-    isTrue: 0
-  - answerOption: 18
+  - answerOption: Biru
     isTrue: 1
+  - answerOption: Hijau
+    isTrue: 0
+  - answerOption: Kuning
+    isTrue: 0

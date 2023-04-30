@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a11d1cb8f7d44359a7d927b56350f1d, type: 3}
-  m_Name: Question 4
+  m_Name: Question 2-3
   m_EditorClassIdentifier: 
-  questionText: Which of the following CANNOT occur multiple numbers of times in
-    a program?
-  questionImage: {fileID: 21300000, guid: 0e1b1377844de41bfb336f01d4990921, type: 3}
+  questionText: Warna dari Daun ?
+  questionImage: {fileID: 21300000, guid: dc37028761ab5429da1f96cbde16ef83, type: 3}
   answerOption:
-  - answerOption: Namespace
+  - answerOption: Merah
     isTrue: 0
-  - answerOption: Class
+  - answerOption: Biru
     isTrue: 0
-  - answerOption: ' Entry point'
+  - answerOption: Hijau
     isTrue: 1
-  - answerOption: Function
+  - answerOption: Kuning
     isTrue: 0

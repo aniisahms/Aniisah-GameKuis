@@ -4,29 +4,40 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] InitialDataGameplay initialData = null;
     [SerializeField] PlayerProgress playerProgress = null;
     private int questionIndex = -1;
     [SerializeField] LevelPackQuiz quizData = null;
     [SerializeField] QuestionsUI questionsUI = null;
     [SerializeField] AnswersUI[] answersUI = new AnswersUI[0];
 
+    [SerializeField] GameSceneManager gameSceneManager = null;
+    [SerializeField] string selectMenuSceneName = string.Empty;
+
     private void Start() {
-        if (playerProgress.LoadProgress() == false)
-        {
-            playerProgress.SaveProgress();
-        }
+        // if (playerProgress.LoadProgress() == false)
+        // {
+        //     playerProgress.SaveProgress();
+        // }
+
+        quizData = initialData.levelPack;
+        questionIndex = initialData.levelIndex - 1;
         NextLevel();
     }
 
     public void NextLevel() {
+        // next question index
         questionIndex++;
 
         if (questionIndex >= quizData.questionLength)
         {
-            questionIndex = 0;
+            // questionIndex = 0;
+            gameSceneManager.OpenScene(selectMenuSceneName);
+
+            return;
         }
 
-        LevelQuizQuestion individualData = quizData.numOfQuestion(questionIndex);
+        LevelQuizQuestion individualData = quizData.NumOfQuestion(questionIndex);
 
         questionsUI.SetQuestion($"Question {questionIndex + 1}",
         individualData.questionText, individualData.questionImage);

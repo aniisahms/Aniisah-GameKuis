@@ -36,14 +36,20 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets/Scripts/UILevelPackOption.cs" />
      <Compile Include="Assets/Scripts/QuestionsUI.cs" />
      <Compile Include="Assets/Scripts/LevelManager.cs" />
+     <Compile Include="Assets/Scripts/UILevelQuizList.cs" />
+     <Compile Include="Assets/Scripts/GameSceneManager.cs" />
+     <Compile Include="Assets/Scripts/UILevelOption.cs" />
      <Compile Include="Assets/Scripts/TimerUI.cs" />
+     <Compile Include="Assets/Scripts/UILevelPackList.cs" />
      <Compile Include="Assets/Scripts/PlayerProgress.cs" />
      <Compile Include="Assets/Scripts/LevelQuizQuestion.cs" />
      <Compile Include="Assets/Scripts/LevelMessageUI.cs" />
      <Compile Include="Assets/Scripts/AnswersUI.cs" />
      <Compile Include="Assets/Scripts/LevelPackQuiz.cs" />
+     <Compile Include="Assets/Scripts/InitialDataGameplay.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
