@@ -8,14 +8,13 @@ public class UILevelPackList : MonoBehaviour
     [SerializeField] UILevelQuizList levelList = null;
     [SerializeField] UILevelPackOption levelPackButton = null;
     [SerializeField] RectTransform content = null;
-    [Space, SerializeField] LevelPackQuiz[] levelPacks = new LevelPackQuiz[0];
 
     private void Start() {
-        LoadLevelPack();
+        // LoadLevelPack();
 
         if (initialData.WhenLose)
         {
-            UILevelPackOption_WhenClickedEvent(initialData.levelPack);
+            UILevelPackOption_WhenClickedEvent(initialData.levelPack, false);
         }
 
         // subscribe events
@@ -27,8 +26,13 @@ public class UILevelPackList : MonoBehaviour
         UILevelPackOption.WhenClickedEvent -= UILevelPackOption_WhenClickedEvent;
     }
 
-    private void UILevelPackOption_WhenClickedEvent(LevelPackQuiz levelPack)
+    private void UILevelPackOption_WhenClickedEvent(LevelPackQuiz levelPack, bool isLocked)
     {
+        if (isLocked)
+        {
+            return;
+        }
+
         // open levels page
         levelList.gameObject.SetActive(true);
         levelList.UnLoadLevelPack(levelPack);
@@ -39,7 +43,7 @@ public class UILevelPackList : MonoBehaviour
         initialData.levelPack = levelPack;
     }
 
-    private void LoadLevelPack()
+    public void LoadLevelPack(LevelPackQuiz[] levelPacks, PlayerProgress.MainData playerData)
     {
         foreach (var lp in levelPacks)
         {
@@ -51,6 +55,13 @@ public class UILevelPackList : MonoBehaviour
             // put button object as 'content' object child
             t.transform.SetParent(content);
             t.transform.localScale = Vector3.one;
+
+            // check if the lv pack is registered in player Dictionary progress
+            if (!playerData.levelProgress.ContainsKey(lp.name))
+            {
+                // if not --> lock lv pack
+                t.LockLevelPack();
+            }
         }
     }
 }

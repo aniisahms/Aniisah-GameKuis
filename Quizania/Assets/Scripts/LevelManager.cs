@@ -14,12 +14,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameSceneManager gameSceneManager = null;
     [SerializeField] string selectMenuSceneName = string.Empty;
 
-    private void Start() {
-        // if (playerProgress.LoadProgress() == false)
-        // {
-        //     playerProgress.SaveProgress();
-        // }
-
+    private void Start()
+    {
         quizData = initialData.levelPack;
         questionIndex = initialData.levelIndex - 1;
         NextLevel();
@@ -28,20 +24,33 @@ public class LevelManager : MonoBehaviour
         AnswersUI.AnswerTheQuestionEvent += AnswersUI_AnswerTheQuestionEvent;
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         // unsubscribe events
         AnswersUI.AnswerTheQuestionEvent -= AnswersUI_AnswerTheQuestionEvent;
     }
 
-    private void OnApplicationQuit() {
+    private void OnApplicationQuit()
+    {
         initialData.WhenLose = false;
     }
 
     private void AnswersUI_AnswerTheQuestionEvent(string answer, bool isTrue)
     {
-        if (isTrue)
+        if (!isTrue) return;
+
+        string levelPackName = initialData.levelPack.name;
+        int latesLevel = playerProgress.progressData.levelProgress[levelPackName];
+
+        if (questionIndex + 2 > latesLevel)
         {
+            // add reward coins
             playerProgress.progressData.poin += 20;
+            
+            // open new level
+            playerProgress.progressData.levelProgress[levelPackName] = questionIndex + 2;
+            
+            playerProgress.SaveProgress();
         }
     }
 
@@ -49,7 +58,7 @@ public class LevelManager : MonoBehaviour
         // next question index
         questionIndex++;
 
-        if (questionIndex >= quizData.questionLength)
+        if (questionIndex >= quizData.QuestionsLength)
         {
             // questionIndex = 0;
             gameSceneManager.OpenScene(selectMenuSceneName);

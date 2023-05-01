@@ -5,6 +5,7 @@ using UnityEngine;
 public class UILevelQuizList : MonoBehaviour
 {
     [SerializeField] InitialDataGameplay initialData = null;
+    [SerializeField] PlayerProgress playerProgress = null;
     [SerializeField] UILevelOption levelButton = null;
     [SerializeField] RectTransform content = null;
     [SerializeField] LevelPackQuiz levelPack = null;
@@ -34,9 +35,11 @@ public class UILevelQuizList : MonoBehaviour
     {
         DeleteContent();
 
+        var latestLevelUnlocked = playerProgress.progressData.levelProgress[levelPack.name] - 1;
+
         this.levelPack = levelPack;
 
-        for (int i = 0; i < levelPack.questionLength; i++)
+        for (int i = 0; i < levelPack.QuestionsLength; i++)
         {
             // duplicate object from level button prefab
             var t = Instantiate(levelButton);
@@ -46,6 +49,11 @@ public class UILevelQuizList : MonoBehaviour
             // put button object as 'content' object child
             t.transform.SetParent(content);
             t.transform.localScale = Vector3.one;
+
+            if (i > latestLevelUnlocked)
+            {
+                t.ButtonInteraction = false;
+            }
         }
     }
 

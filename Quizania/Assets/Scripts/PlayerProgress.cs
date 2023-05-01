@@ -20,19 +20,32 @@ public class PlayerProgress : ScriptableObject
     [SerializeField] string fileName = "example.txt";
     public MainData progressData = new MainData();
 
+    [SerializeField] string startingLevelPackName = string.Empty;
+
     public void SaveProgress() 
     {
-        // sample data
-        progressData.poin = 200;
+        // // sample data
+        // progressData.poin = 200;
         
-        if (progressData.levelProgress == null){
+        // if (progressData.levelProgress == null){
+        //     progressData.levelProgress = new();
+        // }
+        // progressData.levelProgress.Add("Level pack 1", 3);
+        // progressData.levelProgress.Add("Level pack 3", 5);
+
+        if (progressData.levelProgress == null)
+        {
             progressData.levelProgress = new();
+            progressData.poin = 0;
+            progressData.levelProgress.Add(startingLevelPackName, 1);
         }
-        progressData.levelProgress.Add("Level pack 1", 3);
-        progressData.levelProgress.Add("Level pack 3", 5);
 
         // data storage information
-        var directory = Application.dataPath + "/Temporary/";
+#if UNITY_EDITOR
+        string directory = Application.dataPath + "/Temporary/";
+#elif (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
+        string directory = Application.persistentDataPath + "/LocalProgress/";
+#endif
         var path = directory + "/" + fileName;
 
         // create temporary directory
@@ -42,7 +55,13 @@ public class PlayerProgress : ScriptableObject
         }
 
         // create new file
-        if (!File.Exists(path)) {
+        // if (!File.Exists(path))
+        // {
+        //     File.Create(path).Dispose();
+        //     Debug.Log("File created: " + path);
+        // }
+        if (File.Exists(path))
+        {
             File.Create(path).Dispose();
             Debug.Log("File created: " + path);
         }
