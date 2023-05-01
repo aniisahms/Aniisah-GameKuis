@@ -23,6 +23,26 @@ public class LevelManager : MonoBehaviour
         quizData = initialData.levelPack;
         questionIndex = initialData.levelIndex - 1;
         NextLevel();
+
+        // subscribe events
+        AnswersUI.AnswerTheQuestionEvent += AnswersUI_AnswerTheQuestionEvent;
+    }
+
+    private void OnDestroy() {
+        // unsubscribe events
+        AnswersUI.AnswerTheQuestionEvent -= AnswersUI_AnswerTheQuestionEvent;
+    }
+
+    private void OnApplicationQuit() {
+        initialData.WhenLose = false;
+    }
+
+    private void AnswersUI_AnswerTheQuestionEvent(string answer, bool isTrue)
+    {
+        if (isTrue)
+        {
+            playerProgress.progressData.poin += 20;
+        }
     }
 
     public void NextLevel() {
