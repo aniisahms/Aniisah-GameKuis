@@ -14,7 +14,7 @@ public class UILevelPackList : MonoBehaviour
 
         if (initialData.WhenLose)
         {
-            UILevelPackOption_WhenClickedEvent(initialData.levelPack, false);
+            UILevelPackOption_WhenClickedEvent(null, initialData.levelPack, false);
         }
 
         // subscribe events
@@ -26,7 +26,7 @@ public class UILevelPackList : MonoBehaviour
         UILevelPackOption.WhenClickedEvent -= UILevelPackOption_WhenClickedEvent;
     }
 
-    private void UILevelPackOption_WhenClickedEvent(LevelPackQuiz levelPack, bool isLocked)
+    private void UILevelPackOption_WhenClickedEvent(UILevelPackOption levelPackButton, LevelPackQuiz levelPack, bool isLocked)
     {
         if (isLocked)
         {

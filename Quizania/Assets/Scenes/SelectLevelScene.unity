@@ -801,6 +801,7 @@ MonoBehaviour:
   playerProgress: {fileID: 11400000, guid: 4bb04a4872ee742e48f8bf8863e61703, type: 2}
   sufficientCoinMessage: {fileID: 1678974365}
   insufficientCoinMessage: {fileID: 932914334}
+  levelMenuDataManager: {fileID: 1934351687}
 --- !u!1 &330352501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,7 +1976,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1570789990}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 285910792}
+        m_TargetAssemblyTypeName: UIMenuConfirmMessage, Assembly-CSharp
+        m_MethodName: UnlockLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 285910788}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1570789990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2910,7 +2935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3583699633570351645, guid: 67bc3324282ce4c7185e06f47374b3da, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00018548664
+      value: -0.00007788837
       objectReference: {fileID: 0}
     - target: {fileID: 3971574446502450593, guid: 67bc3324282ce4c7185e06f47374b3da, type: 3}
       propertyPath: m_AnchorMax.x

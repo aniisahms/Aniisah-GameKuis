@@ -7,7 +7,7 @@ public class LevelMenuDataManager : MonoBehaviour
 {
     [SerializeField] UILevelPackList levelPackList = null;
     [SerializeField] PlayerProgress playerProgress = null;
-    [SerializeField] TextMeshProUGUI coinCountUI = null;
+    public TextMeshProUGUI coinCountUI = null;
     [SerializeField] LevelPackQuiz[] levelPacks = new LevelPackQuiz[0];
     
     void Start()

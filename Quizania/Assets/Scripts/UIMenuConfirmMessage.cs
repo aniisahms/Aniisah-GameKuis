@@ -7,8 +7,11 @@ public class UIMenuConfirmMessage : MonoBehaviour
     [SerializeField] PlayerProgress playerProgress = null;
     [SerializeField] GameObject sufficientCoinMessage = null;
     [SerializeField] GameObject insufficientCoinMessage = null;
+    private UILevelPackOption _levelPackButton = null;
+    private LevelPackQuiz _levelPack = null;
+    [SerializeField] LevelMenuDataManager levelMenuDataManager;
 
-    void Start()
+    private void Start()
     {
         if (gameObject.activeSelf)
         {
@@ -25,7 +28,8 @@ public class UIMenuConfirmMessage : MonoBehaviour
         UILevelPackOption.WhenClickedEvent -= UILevelPackOption_WhenClickedEvent;
     }
 
-    private void UILevelPackOption_WhenClickedEvent(LevelPackQuiz levelPack, bool isLocked)
+    private void UILevelPackOption_WhenClickedEvent(UILevelPackOption levelPackButton,
+        LevelPackQuiz levelPack, bool isLocked)
     {
         if (!isLocked) return;
 
@@ -43,5 +47,19 @@ public class UIMenuConfirmMessage : MonoBehaviour
         // sufficient
         sufficientCoinMessage.SetActive(true);
         insufficientCoinMessage.SetActive(false);
+
+        _levelPackButton = levelPackButton;
+        _levelPack = levelPack;
+    }
+
+    public void UnlockLevel()
+    {
+        playerProgress.progressData.poin -= _levelPack.Price;
+        playerProgress.progressData.levelProgress[_levelPack.name] = 1;
+
+        levelMenuDataManager.coinCountUI.text = $"{playerProgress.progressData.poin}";
+
+        playerProgress.SaveProgress();
+        _levelPackButton.UnlockLevelPack();
     }
 }

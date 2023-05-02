@@ -6,7 +6,7 @@ using TMPro;
 
 public class UILevelPackOption : MonoBehaviour
 {
-    public static event System.Action<LevelPackQuiz, bool> WhenClickedEvent;
+    public static event System.Action<UILevelPackOption, LevelPackQuiz, bool> WhenClickedEvent;
     [SerializeField] TextMeshProUGUI packName = null;
     [SerializeField] LevelPackQuiz levelPack = null;
     [SerializeField] Button button = null;
@@ -40,7 +40,7 @@ public class UILevelPackOption : MonoBehaviour
     private void WhenClicked()
     {
         // Debug.Log("Clicked");
-        WhenClickedEvent?.Invoke(levelPack, isLocked);
+        WhenClickedEvent?.Invoke(this, levelPack, isLocked);
     }
 
     public void LockLevelPack()

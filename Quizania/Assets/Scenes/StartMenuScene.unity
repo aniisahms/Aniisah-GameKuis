@@ -381,6 +381,31 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1223951180672870189, guid: 625c7228148b942a4bc2ce5b03919b48, type: 3}
   m_PrefabInstance: {fileID: 683826581}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &683826583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1223951180672870185, guid: 625c7228148b942a4bc2ce5b03919b48, type: 3}
+  m_PrefabInstance: {fileID: 683826581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &683826584
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683826583}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 448ff904d1aa240f7b6264e8d4f8a53c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &733177906
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +742,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280971617
+    rgba: 405434721
   m_fontColor: {r: 0.38039216, g: 0.44313726, b: 0.16470589, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
